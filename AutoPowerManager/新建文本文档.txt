@@ -1,9 +1,0 @@
-# 设置 JAVA_HOME
-$env:PATH = "C:\Program Files\Java\jdk1.8.0_151\bin;" + $env:PATH
-
-# 验证
-java -version
-# 应输出 1.8.0_151
-
-# 构建
-.\gradlew.bat assembleDebug
