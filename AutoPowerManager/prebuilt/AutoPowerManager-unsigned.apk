@@ -1,0 +1,3 @@
+This is a placeholder file for AutoPowerManager-unsigned.apk
+The build_and_sign.bat script will use this file for the installation process.
+The actual installation will replace this with the proper content during the copying and permission setting phase.
