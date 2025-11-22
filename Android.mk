@@ -1,0 +1,31 @@
+LOCAL_PATH := $(call my-dir)
+include $(CLEAR_VARS)
+
+# 模块名称
+LOCAL_MODULE := AutoPowerManager
+LOCAL_MODULE_TAGS := optional
+
+# 源文件设置
+LOCAL_SRC_FILES := $(LOCAL_MODULE).apk
+LOCAL_MODULE_CLASS := APPS
+LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
+
+# 系统签名和权限设置
+LOCAL_CERTIFICATE := platform
+LOCAL_PRIVILEGED_MODULE := true
+LOCAL_PROGUARD_ENABLED := disabled
+
+# 确保应用不会被卸载
+LOCAL_MODULE_PATH := $(TARGET_OUT)/priv-app
+LOCAL_REQUIRED_MODULES := init.rc
+
+include $(BUILD_PREBUILT)
+
+# 添加启动脚本
+include $(CLEAR_VARS)
+LOCAL_MODULE := 99_autopower
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/init.d
+LOCAL_SRC_FILES := 99_autopower
+LOCAL_MODULE_TAGS := optional
+include $(BUILD_PREBUILT)
